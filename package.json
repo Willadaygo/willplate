@@ -1,0 +1,35 @@
+{
+  "name": "Pistou",
+  "version": "1.0.0",
+  "description": "",
+  "main": "gulpfile.js",
+  "dependencies": {
+    "browser-sync": "latest",
+    "browserify": "latest",
+    "deepmerge": "latest",
+    "gulp": "latest",
+    "gulp-autoprefixer": "latest",
+    "gulp-changed": "latest",
+    "gulp-concat": "latest",
+    "gulp-imagemin": "latest",
+    "gulp-jshint": "latest",
+    "gulp-load-plugins": "latest",
+    "gulp-minify-css": "latest",
+    "gulp-notify": "latest",
+    "gulp-open": "latest",
+    "gulp-rename": "latest",
+    "gulp-ruby-sass": "latest",
+    "gulp-sass": "latest",
+    "gulp-twig": "latest",
+    "gulp-uglify": "latest",
+    "gulp-util": "latest",
+    "jshint-stylish": "latest",
+    "rimraf": "latest",
+    "vinyl-source-stream": "latest"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}

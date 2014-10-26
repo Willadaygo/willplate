@@ -1,0 +1,48 @@
+/*
+* Uses Font Awesome and Bootstrap 3
+* Both aren't required for this demo
+*/
+.site {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  
+  height: 5000px; /* Temp: Simulates a tall page. */
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  @include size(100%);
+  @include opacity(0);
+  background: transparent;
+}
+
+.site__inner {
+  @include size(100%);
+  position: relative;
+  
+  transform: translateX(0);
+  
+  transform: translate3d(0, 0, 0);
+  
+  transition: .5s ease all;
+ 
+  backface-visibility: hidden;
+}
+
+.show-nav .site__inner {
+  transform: translateX(rem(300));
+  transform: translate3d(rem(300));
+}
+
+.ocn {
+  width: rem(300);
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: rem(-300);
+  background: col("green");
+  padding: $padding;
+}

@@ -1,0 +1,141 @@
+/*------------------------------------*\
+    #OTHER ARBITRARY HELPERS
+\*------------------------------------*/
+
+@each $color in map-keys($palette) {
+  .l__#{$color} { background-color: map-get($palette, $color) !important; }
+  .t__#{$color} { color: map-get($palette, $color) !important; }
+}
+
+.z__back {
+  z-index: 0;
+}
+
+.z__front {
+  z-index: 1;
+}
+
+.l__max-width--large {
+  max-width: rem(1200);
+}
+
+.l__max-width {
+  max-width: rem(960);
+}
+
+.l__max-width--small {
+  max-width: rem(540);
+}
+
+.l__center {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.l__padding {
+  padding: $padding;
+}
+
+.l__padding--large {
+  padding: $padding-large;
+}
+
+.l__padding--xlarge {
+  padding: $padding-xlarge;
+}
+
+.l__margin-top {
+  margin-top: $padding;
+}
+
+.l__margin-top--large {
+  margin-top: $padding-large;
+}
+
+.l__margin-top--xlarge {
+  margin-top: $padding-xlarge;
+}
+
+.l__margin--none {
+  margin: 0;
+}
+
+.l__clear {
+  clear: both;
+}
+
+.l__cf {
+  *zoom: 1;
+  &:before, &:after {
+    content: " ";
+    display: table;
+  }
+  &:after {
+    clear: both;
+  }
+}
+
+.l__right {
+  float: right;
+}
+ 
+.l__left {
+  float: left;
+}
+
+.l__pos--rel {
+  position: relative;
+}
+
+.l__pos--abs {
+  position: absolute;
+}
+
+.l__abCenter {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.l__middle {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 100%;
+}
+
+.l__small {
+  @include break($med-break) {
+    display: none !important;
+  }
+}
+
+.l__large {
+  @media screen and (max-width: $med-break) {
+    display: none !important;
+  }
+}
+
+.t__hidden {
+  overflow:hidden;
+  text-indent:-9000px;
+  display: block;
+}
+
+.t__align--center {
+  text-align: center;
+}
+
+.t__align--right{
+  text-align: right !important;
+}
+
+.t__align--left{
+  text-align: left !important;
+}
+
+.t__word-break {
+  word-break: break-all;
+  word-break: break-word;
+}

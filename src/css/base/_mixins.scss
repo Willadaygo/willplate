@@ -1,0 +1,127 @@
+/*------------------------------------*\
+    #MIXINS
+\*------------------------------------*/
+
+/*  Rem Helper
+  ===================================== */
+@function rem($size) { 
+  $remSize: $size / 16;
+  @return $remSize * 1rem;
+}
+
+@mixin font-face($font-family, $file-path, $weight: normal, $style: normal, $asset-pipeline: false ) {
+  @font-face {
+    font-family: $font-family;
+    font-weight: $weight;
+    font-style: $style;
+ 
+    @if $asset-pipeline == true {
+      src: font-url('#{$file-path}.eot');
+      src: font-url('#{$file-path}.eot?#iefix')          format('embedded-opentype'),
+           font-url('#{$file-path}.woff')                format('woff'),
+           font-url('#{$file-path}.ttf')                 format('truetype'),
+           font-url('#{$file-path}.svg##{$font-family}') format('svg');
+    } @else {
+      src: url('#{$file-path}.eot');
+      src: url('#{$file-path}.eot?#iefix')               format('embedded-opentype'),
+           url('#{$file-path}.woff')                     format('woff'),
+           url('#{$file-path}.ttf')                      format('truetype'),
+           url('#{$file-path}.svg##{$font-family}')      format('svg');
+    }
+  }
+}
+
+/*  Color Helper
+  ===================================== */
+
+@function col($color) {
+  @return map-get($palette, $color);
+}
+
+/* Responsive breaks
+  ===================================== */
+@mixin break($breakPoint) {
+  @media screen and (min-width: $breakPoint) {
+    @content;
+  }
+}
+
+@mixin break-max($breakPoint) {
+  @media screen and (max-width: $breakPoint) {
+    @content;
+  }
+}
+
+/* Sizing Mixin, if height omitted, falls back to width value
+  ========================================================================== */
+@mixin size($width, $height: $width) {
+  width: $width;
+  height: $height;
+}
+
+/* Opacity IE8 Mixin
+  ========================================================================== */
+@mixin opacity($opacity) {
+  opacity: $opacity;
+  $opacity-ie: $opacity * 100;
+  filter: alpha(opacity=$opacity-ie); //IE8
+}
+
+/* PNG Retina Mixin
+  ========================================================================== */
+
+$image-path: '../img' !default;
+$extension: 'png' !default;
+$extension2: 'svg' !default;
+
+@mixin bg-img($name, $width, $height) {
+  background-image: url(#{$image-path}/#{$name}.#{$extension});
+  background-image: none, url(#{$image-path}/#{$name}.#{$extension2});
+  background-repeat: no-repeat;
+  background-size: $width $height;
+}
+
+
+/* Ellipsis Mixin
+  ========================================================================== */
+
+@mixin text-truncate {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* Stagger Transition Delay Mixin
+  ========================================================================== */
+
+@mixin stagger-transition-delay($i, $initial-delay, $stagger-delay) {
+  @while $i > 0 {
+    &:nth-of-type(#{$i}) {
+      transition-delay:$initial-delay + $stagger-delay * $i;
+    }
+    $i: $i - 1;
+  }
+}
+
+// @mixin adjust-form-siblings-count($max: 10, $property: width) {
+//     $i: 0;
+//     @while ($i < $max) {
+//         $i: $i+1;
+//         $j: 1;
+//         $selector: "";
+//         @while ($j < $i) {
+//             $selector: $selector + "&:nth-child(#{$j}):nth-last-child(#{$i - $j + 1}),";
+//             $j: $j+1;
+//             @debug "$j #{$j}";
+//         }
+//         $selector: $selector + "&:nth-child(#{$j}):nth-last-child(#{$i - $j + 1})";
+        
+//         @debug "$i #{$i}";
+//         @debug "#$selector #{$selector}";
+//         #{$selector} { #{$property}: percentage(1/$i); }
+//     }
+// }
+
+// .class {
+//     @include adjust-form-siblings-count;
+// }

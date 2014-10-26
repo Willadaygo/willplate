@@ -1,0 +1,144 @@
+/*------------------------------------*\
+    #BASE
+\*------------------------------------*/
+
+/*------------------------------------*\
+    #FONT-SIZES
+\*------------------------------------*/
+
+
+html {
+  font-family: "Montserrat", "Helvetica Neue", "Helvetica", "Arial", "Sans-serif";
+  font-weight: 400;
+  overflow-y: scroll;
+  min-height: 100%;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  @include break($max-break) {
+    font-size: 120%;
+  }
+}
+
+body {
+  background: col("orange--lighter"); // Home
+  transition: background 1s ease;
+  letter-spacing: .02em;
+  &.page--style-guide {
+    background: col("blue");
+  }
+}
+
+
+/*------------------------------------*\
+    #HEADINGS
+\*------------------------------------*/
+
+h1,h2,h3,h4,h5,h6,hgroup,ul,ol,dl,blockquote,p,address,table,fieldset,pre,small {
+  margin: 0;
+  margin-bottom: $padding;
+}
+
+h1,.t__alpha,h2,.t__beta,h3,.t__gamma,h4,.t__delta,h5,.t__epsilon,h6,.t__zeta,.t__giga {
+  text-transform: uppercase;
+  font-weight: 700;
+  letter-spacing: .2em;
+}
+
+h1,.t__alpha {
+}
+
+h2,.t__beta {
+}
+
+h3,.t__gamma {
+}
+
+h4,.t__delta {
+}
+
+/*------------------------------------*\
+    #PARAGRAPHS
+\*------------------------------------*/
+
+p {
+  text-transform: none;
+  line-height: rem(22);
+}
+
+.t__mega {
+  font-size: rem(15);
+  line-height: rem(18);
+  letter-spacing: .2em;
+  @include break($med-break) {
+    font-size: rem(24);
+    line-height: rem(38);
+  }
+}
+
+/*------------------------------------*\
+    #LINKS
+\*------------------------------------*/
+
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: $speed ease;
+}
+
+/*------------------------------------*\
+    #SOCIAL
+\*------------------------------------*/
+
+@include font-face(icons, '../fonts/icons', normal, normal);
+
+$icons: (
+  twitter: "\f001",
+  instagram: "\f002"
+);
+ 
+@each $name, $icon in $icons {
+  .icon--#{$name}:before {
+    content: $icon;
+    font-family: "icons";
+    font-size: rem(20);
+    line-height: rem(31);
+    display: inline-block;
+    transition: opacity $speed ease;
+    speak: none;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    @include opacity(1);
+    vertical-align: bottom;
+  }
+  .icon--#{$name}:hover:before {
+    @include opacity(.5);
+  }
+}
+
+.icon--twitter:before {
+  font-size:rem(22);
+}
+
+.social-icons {
+  text-align: center;
+}
+
+.icon--twitter:before,
+.icon--instagram:before {
+  padding:0 rem(20);
+  @include break($med-break) {
+    padding:0 rem(5);
+  }
+}
+
+
+
+
+
+
+
+
+
+

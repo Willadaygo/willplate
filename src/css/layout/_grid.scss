@@ -1,0 +1,52 @@
+/*------------------------------------*\
+    #GRID
+\*------------------------------------*/
+
+.grid {
+  @extend .l__cf;
+  width: 100%;
+  margin: $padding 0 0;
+  &:first-child {
+    margin-top: 0;
+  }
+  @include break($small-break) {
+    margin: $padding 0 0 -$padding;
+    width: calc(100% + #{$padding});
+    &.grid--noMargins {
+      margin: $padding 0 0;
+      width: 100%;
+    }
+  }
+}
+
+[class*="col--"] {
+  min-height: $padding;
+  width: 100%;
+  margin-top: $padding;
+  background: col("yellow");
+  &:first-child {
+    margin-top: 0;
+  }
+  @include break($small-break) {
+    float: left;
+    margin-top: 0;
+    margin-left: $padding;
+    &:last-child {
+      float: right;
+    }
+    .grid--noMargins & {
+      margin-left: 0;
+    }
+  }
+}
+
+@for $i from 1 through 12 {
+  .col--#{$i} {
+    @include break($small-break) {
+      width: calc( #{((100%/12)*$i)} - #{$padding} )!important;
+      .grid--noMargins & {
+        width: #{((100%/12)*$i)}!important;
+      }
+    }
+  }
+}

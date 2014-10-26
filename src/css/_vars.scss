@@ -1,0 +1,47 @@
+/*------------------------------------*\
+    #VARIABLE SETTINGS
+\*------------------------------------*/
+
+// Consistent settings
+
+$padding-xlarge: #{(60/16)}rem;
+$padding-large: #{(45/16)}rem;
+$padding: #{(30/16)}rem;
+$padding-small: #{(15/16)}rem;
+
+// Responsive breakpoints
+$small-break: 30em;  //480
+$med-break: 50.0625em; //801
+$big-break: 68.75em; //1100
+$max-break: 112.5em; //1800
+
+$speed: 200ms;
+
+// Color variables
+
+$palette: (
+  "green--lighter": #dEfae3,
+  "green--light": #c9e5d4,
+  "green": #b5d1c2,
+  "green--dark": #a1bdb5,
+  "green--darker": #8ca8a3,
+  "green--darkest": #779394,
+
+  "yellow": #ffffc9,
+
+  "orange--lighter": #fae8b5,
+  "orange--light": #f7d19e,
+  "orange": #f2ba8a,
+  "orange--dark": #eda673,
+  "orange--darker": #ea8e5e,
+
+  "blue--lighter": #d9e3ed,
+  "blue--light": #bdc2d1,
+  "blue": #828c9c,
+  "blue--dark": #576170,
+  "blue--darker": #2e3347,
+  "blue--darkest": #00081f,
+
+  "white": #fff,
+  "black": #000,
+);

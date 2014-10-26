@@ -1,0 +1,21 @@
+/*------------------------------------*\
+    #IMPORTS
+\*------------------------------------*/
+
+@import url(http://fonts.googleapis.com/css?family=Montserrat:400,700);
+
+@import "vars";
+@import "base/all";
+@import "layout/all";
+@import "components/all";
+
+
+//	Style Guide
+//	-----------------------------------
+
+hr {
+  border:none;
+  border-bottom: rem(1) solid col("green--dark");
+  margin: $padding auto;
+  max-width: rem(960);
+}
