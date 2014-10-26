@@ -12,8 +12,7 @@
   min-width: rem(220);
   height: rem(50);
   line-height: rem(50);
-  padding-left: rem(20);
-  padding-right: rem(21);
+  padding: 0 rem(20) 0 rem(22); //counters letter-spacing
   transition: $speed ease;
   user-select: none;
   background-image: none;
@@ -33,7 +32,7 @@
 .btn--large {
   height: rem(70);
   font-size: rem(24);
-  line-height: rem(72);
+  line-height: rem(70);
   min-width: rem(300);
 }
 
@@ -55,9 +54,9 @@
     background-color: darken($bgcolor, 7%);
     }
   }
-  // &:active {
-  //   box-shadow: inset 0 0 rem(12) darken($bgcolor, 12%);
-  // }
+  &:active {
+    box-shadow: inset 0 0 rem(12) darken($bgcolor, 20%);
+  }
 }
 
 .btn--primary {

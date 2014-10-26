@@ -19,21 +19,15 @@ ul {
 
 // Page loading
 
-.switch-trans {
-  // transition: opacity 1s;
+.switch {
   transition: transform .5s cubic-bezier(0.175, .885, .32, 1.275), opacity 1s; //cheeky
-
-  &.switch-trans-in {
+  @include opacity(1);
+  transform: translate3d(0, 0, 0);
+  &.is--hidden {
     @include opacity(0);
     transform: translate3d(0, 20%, 0);
-
-    &.switch-trans-out {
-      @include opacity(1);
-      transform: translate3d(0, 0, 0);    
-    } 
   }
 }
-
 /* Make clicks pass-through */
 #nprogress {
   pointer-events: none;

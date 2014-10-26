@@ -53,7 +53,7 @@ MODULE.ajaxer = (function(){
 
     var cache = {},
         url,
-        $container = $('#switch-cont'),
+        $container = $('.switch-container'),
         $switcher,
         $menuLinks = $('.ocn__list a');
         var $ajaxLinks = $menuLinks;
@@ -93,12 +93,8 @@ MODULE.ajaxer = (function(){
           createHistory(url, cache[url].headerTitle);          
         }
         $switcherContent = $(cache[url].html);
-        if ($switcherContent.hasClass('switch-trans')) {
-          $switcherContent.addClass('switch-trans-in');
-        } else {
-          $('.switch-trans', $switcherContent).addClass('switch-trans-in');
-        }
-        $newSwitcher = $('<div class="switch"></div>');
+
+        $newSwitcher = $('<div class="switch is--hidden"></div>');
         $newContainer = $container;
 
         $newSwitcher.append($switcherContent);
@@ -106,7 +102,7 @@ MODULE.ajaxer = (function(){
 
         $newContainer.append($newSwitcher);
         $newContainer[0].offsetHeight; // This is to force the dom to redraw with class names before changing again...
-        $newContainer.find('.switch-trans').addClass('switch-trans-out');
+        $newContainer.find('.switch').removeClass('is--hidden');
         updateLinks(url, target);
         $('body').removeClass().addClass(cache[url].bodyClasses);
         // uiContentBinding();
