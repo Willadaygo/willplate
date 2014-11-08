@@ -10,10 +10,15 @@
  * (---) bottom -> &:after
  */
 
-$burger-height: rem(3);
-$burger-gutter: rem(5);
 
-@mixin burger($width, $height, $gutter, $color, $border-radius, $transition-duration) {
+/**
+ * Burger
+ */
+
+@mixin burger($width: 30px, $height: 5px, $gutter: 3px, $color: #000, $border-radius: 0, $transition-duration: .3s) {
+  
+  $burger-height: $height !global;
+  $burger-gutter: $gutter !global;
 
   position: relative;
   margin-top: $height + $gutter;
@@ -24,9 +29,10 @@ $burger-gutter: rem(5);
     width: $width;
     height: $height;
     background-color: $color;
-    transform:translateY(0);
-    transform:translateZ(0);
-    transform: rotate(0deg);
+    @if $border-radius != 0 {
+        border-radius: $border-radius;
+    }
+    transform:translateZ(0) translate3d(0,0,0) rotate(0);
     backface-visibility:hidden;
     outline: 1px solid transparent; // Firefox hack to stop jagged edges!
     transition-property: background-color, transform;
@@ -76,40 +82,42 @@ $burger-gutter: rem(5);
   }
 }
 
+
 /**
  * Burger animations
  */
 
 @mixin burger-to-cross {
-  & {
-    background-color: transparent;
-    transform: rotate(180deg);
-  }
-  &:before {
-    transform: translateY($burger-gutter + $burger-height) rotate(45deg);
-  }
-  &:after {
-    transform: translateY(-($burger-gutter + $burger-height)) rotate(-45deg);
-  }
+    & {
+      background-color: transparent;
+      transform: rotate(180deg);
+    }
+    &:before {
+      transform: translateY($burger-gutter + $burger-height) rotate(45deg);
+    }
+    &:after {
+      transform: translateY(-($burger-gutter + $burger-height)) rotate(-45deg);
+    }
 }
 
+
 .menu-button {
-  display: inline-block;
-  padding: rem(20);
+  display: block;
+  padding: rem(30);
+  position: absolute;
   top: 0;
   left: 0;
-  position: absolute;
   user-select:none;
-
   @include break($med-break) {
     // display: none;
   }
 }
 
 .menu-button__burger {
-  @include burger(rem(25), rem(4), rem(4), col("black"), 0, .5s);
+  @include burger(rem(40), rem(1), rem(7), col("black"), 0, .5s);
 }
 
 .menu-button.is--active .menu-button__burger {
   @include burger-to-cross;
 }
+

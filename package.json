@@ -1,7 +1,7 @@
 {
-  "name": "Pistou",
-  "version": "1.0.0",
-  "description": "",
+  "name": "Willplate",
+  "version": "0.0.1",
+  "description": "Framework Test",
   "main": "gulpfile.js",
   "dependencies": {
     "browser-sync": "latest",

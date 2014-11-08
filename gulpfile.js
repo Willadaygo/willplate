@@ -39,8 +39,6 @@ gulp.task('templates', function () {
 		.pipe(gulp.dest(prod));
 });
 
-
-
 //	FONTS
 // --------------------
 
@@ -77,8 +75,6 @@ gulp.task('styles', function () {
 		.pipe(gulp.dest(prod + 'css'));
 });
 
-
-
 //	CLEAN
 // --------------------
 
@@ -87,7 +83,6 @@ gulp.task('clean', function () {
 		if (er) throw er
 	});
 });
-
 
 //	JS
 // --------------------
@@ -112,7 +107,6 @@ gulp.task('vendorScripts', function(){
 		// .pipe($.uglify())
 		.pipe(gulp.dest(prod + 'js'));
 });
-
 
 //	SERVER
 // --------------------

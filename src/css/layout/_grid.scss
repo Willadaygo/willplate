@@ -27,11 +27,14 @@
   &:first-child {
     margin-top: 0;
   }
+  img {
+    width: 100%;
+  }
   @include break($small-break) {
     float: left;
     margin-top: 0;
     margin-left: $padding;
-    &:last-child {
+    & + &:last-child {
       float: right;
     }
     .grid--noMargins & {
@@ -43,9 +46,9 @@
 @for $i from 1 through 12 {
   .col--#{$i} {
     @include break($small-break) {
-      width: calc( #{((100%/12)*$i)} - #{$padding} )!important;
+      width: calc( #{((100%/12)*$i)} - #{$padding} );
       .grid--noMargins & {
-        width: #{((100%/12)*$i)}!important;
+        width: #{((100%/12)*$i)};
       }
     }
   }
