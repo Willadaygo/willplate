@@ -25,7 +25,7 @@
   
   transform: translate3d(0, 0, 0);
   
-  transition: .5s ease all;
+  transition: .5s cubic-bezier(0.645, 0.045, 0.355, 1);
  
   backface-visibility: hidden;
 }
@@ -38,7 +38,7 @@
 .ocn {
   width: rem(300);
   height: 100%;
-  position: absolute;
+  position: fixed;
   top: 0;
   left: rem(-300);
   background: col("green");

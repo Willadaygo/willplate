@@ -11,9 +11,14 @@ $padding-small: #{(15/16)}rem;
 
 // Responsive breakpoints
 $small-break: 30em;  //480
-$med-break: 50.0625em; //801
-$big-break: 68.75em; //1100
+$med-break: 50em; //800
+$large-break: 68.75em; //1100
 $max-break: 112.5em; //1800
+
+$small-break-max: 29.9375em;  //479
+$med-break-max: 49.9375em; //799
+$large-break-max: 68.6875em; //1099
+$max-break-max: 112.4375em; //1799
 
 $speed: 200ms;
 

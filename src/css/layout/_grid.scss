@@ -6,7 +6,7 @@
   @extend .l__cf;
   width: 100%;
   margin: $padding 0 0;
-  &:first-child {
+  &:first-of-type {
     margin-top: 0;
   }
   @include break($small-break) {
@@ -24,7 +24,7 @@
   width: 100%;
   margin-top: $padding;
   background: col("yellow");
-  &:first-child {
+  &:first-of-type {
     margin-top: 0;
   }
   img {
@@ -34,9 +34,6 @@
     float: left;
     margin-top: 0;
     margin-left: $padding;
-    & + &:last-child {
-      float: right;
-    }
     .grid--noMargins & {
       margin-left: 0;
     }
@@ -51,5 +48,57 @@
         width: #{((100%/12)*$i)};
       }
     }
+  }
+}
+
+@mixin grid-machine($columns) {  
+  [class*="col--"] {
+    width: calc( #{((100%/$columns))} - #{$padding} );
+    &:nth-of-type(n){
+      float: left;
+      margin-top: 0;
+    }
+    &:nth-of-type(#{$columns}n) {
+      float: right;
+    }
+    &:nth-of-type(n + #{$columns + 1}  ) {
+      margin-top: $padding;
+    }
+  }
+}
+
+@mixin grid-machine--noMargins($columns) {  
+  [class*="col--"] {
+    width: (100% / $columns);
+    &:nth-of-type(n){
+      float: left;
+    }
+    &:nth-of-type(#{$columns}n) {
+      float: right;
+    }
+  }
+}
+
+.grid--machine {
+  @include break($small-break) {
+    @include grid-machine(2);
+  }
+  @include break($med-break) {
+    @include grid-machine(3);
+  }
+  @include break($large-break) {
+    @include grid-machine(5);
+  }
+}
+
+.grid--machine--noMargins {
+  @include break($small-break) {
+    @include grid-machine--noMargins(2);
+  }
+  @include break($med-break) {
+    @include grid-machine--noMargins(3);
+  }
+  @include break($large-break) {
+    @include grid-machine--noMargins(5);
   }
 }
