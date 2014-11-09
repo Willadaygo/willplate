@@ -34,6 +34,9 @@
     float: left;
     margin-top: 0;
     margin-left: $padding;
+    &:last-of-type {
+      float: right;
+    }
     .grid--noMargins & {
       margin-left: 0;
     }

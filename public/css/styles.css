@@ -909,6 +909,9 @@ a {
     margin-top: 0;
     margin-left: 1.875rem;
   }
+  [class*="col--"]:last-of-type {
+    float: right;
+  }
   .grid--noMargins [class*="col--"] {
     margin-left: 0;
   }
