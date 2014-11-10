@@ -884,6 +884,9 @@ a {
   .grid {
     margin-top: 0;
   }
+  .grid:first-of-type [class*="col--"] {
+    margin-top: 0;
+  }
 }
 
 [class*="col--"] {
@@ -894,6 +897,7 @@ a {
   width: 100%;
   font-size: medium;
   font-size: initial;
+  text-align: left;
 }
 [class*="col--"] img {
   width: 100%;
@@ -977,6 +981,30 @@ a {
   .col--12 {
     width: 100%;
   }
+}
+
+.grid--rev {
+  direction: rtl;
+}
+.grid--rev > [class*="col--"] {
+  direction: ltr;
+}
+
+.grid--full {
+  margin-left: 0;
+  margin-top: 0;
+}
+.grid--full > [class*="col--"] {
+  margin-top: 0;
+  padding-left: 0;
+}
+
+.grid--right {
+  text-align: right;
+}
+
+.grid--center {
+  text-align: center;
 }
 
 /*------------------------------------*\

@@ -2,7 +2,7 @@
     #GRID
 \*------------------------------------*/
 
-// INLINE-BLOCK GRID
+// INLINE-BLOCK GRID LOLZ
 
 .grid {
   list-style: none;
@@ -10,8 +10,14 @@
   padding: 0;
   text-align: left;
   font-size: 0; // inline-block mystery margin hack
+  
   @include break($small-break) {
     margin-top: 0;
+    &:first-of-type {
+      [class*="col--"] {
+        margin-top: 0;
+      }
+    }
   }
 }
 
@@ -23,6 +29,7 @@
   width: 100%;
   font-size: medium; //IE
   font-size: initial;
+  text-align: left;
   img {
     width: 100%;
   }
@@ -42,6 +49,32 @@
       width: #{((100%/12)*$i)};
     }
   }
+}
+
+// Grid Modifiers
+
+.grid--rev {
+  direction:rtl;
+  > [class*="col--"] {
+    direction:ltr;
+  }
+}
+
+.grid--full {
+  margin-left:0;
+  margin-top: 0;
+  > [class*="col--"] {
+    margin-top: 0;
+    padding-left:0;
+  }
+}
+
+.grid--right {
+  text-align:right;
+}
+
+.grid--center {
+  text-align:center;
 }
 
 // .grid {
