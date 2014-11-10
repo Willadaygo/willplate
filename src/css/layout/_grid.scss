@@ -3,42 +3,33 @@
 \*------------------------------------*/
 
 .grid {
-  @extend .l__cf;
-  width: 100%;
-  margin: $padding 0 0;
-  &:first-of-type {
-    margin-top: 0;
-  }
+  list-style: none;
+  margin: $padding 0 0 -$padding;
+  padding: 0;
+  text-align: left;
+  font-size: 0; // inline-block mystery margin hack
   @include break($small-break) {
-    margin: $padding 0 0 -$padding;
-    width: calc(100% + #{$padding});
-    &.grid--noMargins {
-      margin: $padding 0 0;
-      width: 100%;
-    }
+    margin-top: 0;
   }
 }
 
 [class*="col--"] {
-  min-height: $padding;
-  width: 100%;
+  display: inline-block;
   margin-top: $padding;
-  background: col("yellow");
-  &:first-of-type {
-    margin-top: 0;
-  }
+  padding-left: $padding;
+  vertical-align: top;
+  width: 100%;
+  font-size: medium; //IE
+  font-size: initial;
   img {
     width: 100%;
   }
-  @include break($small-break) {
-    float: left;
+  &:first-of-type {
     margin-top: 0;
-    margin-left: $padding;
-    &:last-of-type {
-      float: right;
-    }
-    .grid--noMargins & {
-      margin-left: 0;
+  }
+  @include break($small-break) {
+    &:first-of-type {
+      margin-top: $padding;
     }
   }
 }
@@ -46,62 +37,111 @@
 @for $i from 1 through 12 {
   .col--#{$i} {
     @include break($small-break) {
-      width: calc( #{((100%/12)*$i)} - #{$padding} );
-      .grid--noMargins & {
-        width: #{((100%/12)*$i)};
-      }
+      width: #{((100%/12)*$i)};
     }
   }
 }
 
-@mixin grid-machine($columns) {  
-  [class*="col--"] {
-    width: calc( #{((100%/$columns))} - #{$padding} );
-    &:nth-of-type(n){
-      float: left;
-      margin-top: 0;
-    }
-    &:nth-of-type(#{$columns}n) {
-      float: right;
-    }
-    &:nth-of-type(n + #{$columns + 1}  ) {
-      margin-top: $padding;
-    }
-  }
-}
+// .grid {
+//   @extend .l__cf;
+//   width: 100%;
+//   margin: $padding 0 0;
+//   &:first-of-type {
+//     margin-top: 0;
+//   }
+//   @include break($small-break) {
+//     margin: $padding 0 0 -$padding;
+//     width: calc(100% + #{$padding});
+//     &.grid--noMargins {
+//       margin: $padding 0 0;
+//       width: 100%;
+//     }
+//   }
+// }
 
-@mixin grid-machine--noMargins($columns) {  
-  [class*="col--"] {
-    width: (100% / $columns);
-    &:nth-of-type(n){
-      float: left;
-    }
-    &:nth-of-type(#{$columns}n) {
-      float: right;
-    }
-  }
-}
+// [class*="col--"] {
+//   min-height: $padding;
+//   width: 100%;
+//   margin-top: $padding;
+//   background: col("yellow");
+//   &:first-of-type {
+//     margin-top: 0;
+//   }
+//   img {
+//     width: 100%;
+//   }
+//   @include break($small-break) {
+//     float: left;
+//     margin-top: 0;
+//     margin-left: $padding;
+//     & + &:last-of-type {
+//       float: right;
+//     }
+//     .grid--noMargins & {
+//       margin-left: 0;
+//     }
+//   }
+// }
 
-.grid--machine {
-  @include break($small-break) {
-    @include grid-machine(2);
-  }
-  @include break($med-break) {
-    @include grid-machine(3);
-  }
-  @include break($large-break) {
-    @include grid-machine(5);
-  }
-}
+// @for $i from 1 through 12 {
+//   .col--#{$i} {
+//     @include break($small-break) {
+//       width: calc( #{((100%/12)*$i)} - #{$padding} );
+//       .grid--noMargins & {
+//         width: #{((100%/12)*$i)};
+//       }
+//     }
+//   }
+// }
 
-.grid--machine--noMargins {
-  @include break($small-break) {
-    @include grid-machine--noMargins(2);
-  }
-  @include break($med-break) {
-    @include grid-machine--noMargins(3);
-  }
-  @include break($large-break) {
-    @include grid-machine--noMargins(5);
-  }
-}
+// @mixin grid-machine($columns) {  
+//   [class*="col--"] {
+//     width: calc( #{((100%/$columns))} - #{$padding} );
+//     &:nth-of-type(n){
+//       float: left;
+//       margin-top: 0;
+//     }
+//     &:nth-of-type(#{$columns}n) {
+//       float: right;
+//     }
+//     &:nth-of-type(n + #{$columns + 1}) {
+//       margin-top: $padding;
+//     }
+//   }
+// }
+
+// @mixin grid-machine--noMargins($columns) {  
+//   [class*="col--"] {
+//     width: (100% / $columns);
+//     &:nth-of-type(n){
+//       float: left;
+//     }
+//     &:nth-of-type(#{$columns}n) {
+//       float: right;
+//     }
+//   }
+// }
+
+// .grid--machine {
+//   @include break($small-break) {
+//     @include grid-machine(2);
+//   }
+//   @include break($med-break) {
+//     @include grid-machine(3);
+//   }
+//   @include break($large-break) {
+//     @include grid-machine(5);
+//   }
+// }
+
+// .grid--machine--noMargins {
+//   @include break($small-break) {
+//     @include grid-machine--noMargins(2);
+//   }
+//   @include break($med-break) {
+//     @include grid-machine--noMargins(3);
+//   }
+//   @include break($large-break) {
+//     @include grid-machine--noMargins(5);
+//   }
+// }

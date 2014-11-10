@@ -115,8 +115,8 @@ gulp.task('server', function(){
 	return browserSync.init([prod + '**/*'], {
 		// open: true,
 		server: {
-            baseDir: prod
-        },
+        baseDir: prod
+      },
 		notify: false
 	});
 });
