@@ -763,7 +763,6 @@ h1, .t__alpha, h2, .t__beta, h3, .t__gamma, .btn, h4, .t__delta, h5, .t__epsilon
   text-transform: uppercase;
   font-weight: 700;
   letter-spacing: .2em;
-  text-align: inherit;
 }
 
 /*------------------------------------*\
