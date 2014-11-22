@@ -4,9 +4,11 @@
 
 // INLINE-BLOCK GRID LOLZ
 
+$gutter: #{(1/16)}rem;
+
 .grid {
   list-style: none;
-  margin: $padding 0 0 -$padding;
+  margin: $gutter 0 0 -$gutter;
   padding: 0;
   text-align: left;
   font-size: 0; // inline-block mystery margin hack
@@ -23,8 +25,8 @@
 
 [class*="col--"] {
   display: inline-block;
-  margin-top: $padding;
-  padding-left: $padding;
+  margin-top: $gutter;
+  padding-left: $gutter;
   vertical-align: top;
   width: 100%;
   font-size: medium; //IE
@@ -38,7 +40,7 @@
   }
   @include break($small-break) {
     &:first-of-type {
-      margin-top: $padding;
+      margin-top: $gutter;
     }
   }
 }
@@ -61,20 +63,20 @@
 }
 
 .grid--full {
-  margin-left:0;
+  margin-left: 0;
   margin-top: 0;
   > [class*="col--"] {
     margin-top: 0;
-    padding-left:0;
+    padding-left: 0;
   }
 }
 
 .grid--right {
-  text-align:right;
+  text-align: right;
 }
 
 .grid--center {
-  text-align:center;
+  text-align: center;
 }
 
 // .grid {

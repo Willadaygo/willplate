@@ -30,10 +30,12 @@
 }
 
 .btn--large {
-  height: rem(70);
-  font-size: rem(24);
-  line-height: rem(70);
-  min-width: rem(300);
+  @include break($small-break) {
+    height: rem(70);
+    font-size: rem(24);
+    line-height: rem(70);
+    min-width: rem(300);
+  }
 }
 
 @mixin button($color, $bgcolor, $outline: false) {
