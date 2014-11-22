@@ -115,7 +115,9 @@ MODULE.ajaxer = (function(){
         $switcher = $container.find('.switch');
 
         onpopstate = (!onpopstate ? false : true);
-        // $('.site').removeClass('ocn-show-right');
+        $('.site').removeClass('show-nav');
+        $('.menu-button').removeClass('is--active');
+        $('.ocn').removeClass('is--open');
         $(".overlay").remove();
         $("html, body").animate({ scrollTop: 0 }, 500);
         // var track = url.split('/');
