@@ -17,6 +17,7 @@ $(document).ready(function(){
   function toggleNav() {
 
     $('.site').toggleClass('show-nav');
+    $('.ocn').toggleClass('is--open');
     $('.menu-button').toggleClass('is--active');
 
     if ($('.site').hasClass('show-nav')) {
@@ -24,6 +25,7 @@ $(document).ready(function(){
       $('.overlay').on('click', function() {
         $('.site').removeClass('show-nav');
         $('.menu-button').removeClass('is--active');
+        $('.ocn').removeClass('is--open');
         $(this).remove();
       });
     }

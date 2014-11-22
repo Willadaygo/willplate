@@ -5,7 +5,7 @@
 
 var gulp = require('gulp'),
 	$ = require('gulp-load-plugins')(),
-	sass = require('gulp-ruby-sass'),
+	// sass = require('gulp-ruby-sass'),
 	rimraf = require('rimraf'),
 	browserSync = require('browser-sync'),
 	reload = browserSync.reload,
@@ -15,6 +15,7 @@ var dev = 'src/',
 	prod = 'public/',
 	paths = {
 		pages: dev + 'templates/**/*.twig',
+		// pages: dev + 'html/**/*.html',
 		img: dev + 'img/**/*',
 		css: dev +'css/*.styl',
 		js: dev + 'js/*.js',
@@ -29,6 +30,7 @@ var dev = 'src/',
 
 gulp.task('templates', function () {
 	return gulp.src(paths.pages)
+		// .pipe($.changed(prod, {extension: '.html'}))
 		.pipe($.twig())
 		.on("error", $.notify.onError(function (error) {
 			return "Template Error: " + error.message;
@@ -38,6 +40,8 @@ gulp.task('templates', function () {
 		}))
 		.pipe(gulp.dest(prod));
 });
+
+
 
 //	FONTS
 // --------------------
@@ -66,14 +70,13 @@ gulp.task('images', function () {
 
 gulp.task('styles', function () {
 	return gulp.src(dev + "css/styles.scss")
-		.pipe(sass({ style: 'expanded' }))
-		.on("error", $.notify.onError(function (error) {
-			return "Sass Error: " + error.message;
-		}))
+		.pipe($.sass())
 		.pipe($.autoprefixer())
-		// .pipe($.minifyCss())
+		.pipe($.minifyCss())
 		.pipe(gulp.dest(prod + 'css'));
 });
+
+
 
 //	CLEAN
 // --------------------
@@ -83,6 +86,7 @@ gulp.task('clean', function () {
 		if (er) throw er
 	});
 });
+
 
 //	JS
 // --------------------
@@ -96,7 +100,7 @@ gulp.task('jshint', function () {
 
 gulp.task('scripts', function(){
 	return gulp.src(paths.js)
-		// .pipe($.uglify())
+		.pipe($.uglify())
 		.pipe(gulp.dest(prod + 'js'));
 });
 
@@ -104,19 +108,20 @@ gulp.task('scripts', function(){
 gulp.task('vendorScripts', function(){
 	return gulp.src(paths.vendors)
 		.pipe($.concat('vendors.js'))
-		// .pipe($.uglify())
+		.pipe($.uglify())
 		.pipe(gulp.dest(prod + 'js'));
 });
+
 
 //	SERVER
 // --------------------
 
 gulp.task('server', function(){
 	return browserSync.init([prod + '**/*'], {
-		// open: true,
+		open: false,
 		server: {
-        baseDir: prod
-      },
+            baseDir: prod
+        },
 		notify: false
 	});
 });

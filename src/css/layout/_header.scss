@@ -20,9 +20,6 @@
 .site__inner {
   @include size(100%);
   position: relative;
-  
-  transform: translateX(0);
-  
   transform: translate3d(0, 0, 0);
   
   transition: .5s cubic-bezier(0.645, 0.045, 0.355, 1);
@@ -31,8 +28,7 @@
 }
 
 .show-nav .site__inner {
-  transform: translateX(rem(300));
-  transform: translate3d(rem(300));
+  transform: translate3d(rem(300), 0, 0);
 }
 
 .ocn {
@@ -40,7 +36,11 @@
   height: 100%;
   position: fixed;
   top: 0;
-  left: rem(-300);
   background: col("green");
   padding: $padding;
+  transition: .5s cubic-bezier(0.645, 0.045, 0.355, 1);
+  transform: translate3d(rem(-300), 0, 0);
+  &.is--open {
+    transform: translate3d(0, 0, 0);
+  }
 }
