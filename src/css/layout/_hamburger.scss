@@ -104,11 +104,11 @@
   background-color: transparent;
   // transform: rotate(-180deg);
   &:before {
-    transform: translateY(rem(7) + rem(1)) rotate(270deg + 45deg);
+    transform: translateY(rem(7) + rem(1)) rotate(-360deg + 45deg);
     transform-origin: 50%;
   }
   &:after {
-    transform: translateY(-(rem(7) + rem(1))) rotate(-270deg - 45deg);
+    transform: translateY(-(rem(7) + rem(1))) rotate(360deg - 45deg);
     transform-origin: 50%;
   }
 }

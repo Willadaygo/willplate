@@ -95,25 +95,38 @@ $extension2: 'svg' !default;
   }
 }
 
-// @mixin adjust-form-siblings-count($max: 10, $property: width) {
-//     $i: 0;
-//     @while ($i < $max) {
-//         $i: $i+1;
-//         $j: 1;
-//         $selector: "";
-//         @while ($j < $i) {
-//             $selector: $selector + "&:nth-child(#{$j}):nth-last-child(#{$i - $j + 1}),";
-//             $j: $j+1;
-//             @debug "$j #{$j}";
-//         }
-//         $selector: $selector + "&:nth-child(#{$j}):nth-last-child(#{$i - $j + 1})";
-        
-//         @debug "$i #{$i}";
-//         @debug "#$selector #{$selector}";
-//         #{$selector} { #{$property}: percentage(1/$i); }
-//     }
-// }
+/* Triangle Mixin
+  ========================================================================== */
 
-// .class {
-//     @include adjust-form-siblings-count;
-// }
+@mixin triangle( $direction, $color, $width, $height ) {
+    height: 0;
+    width: 0;
+    border-style: solid;
+    border-color: transparent;
+
+    @if $direction == 'n' {
+        border-width: 0 $width/2 $height;
+        border-bottom-color: $color;
+    } @else if $direction == 'e' {
+        border-width: $width/2 0 $width/2 $height;
+        border-left-color: $color;
+    } @else if $direction == 's' {
+        border-width: $height $width/2 0;
+        border-top-color: $color;
+  } @else if $direction == 'w' {
+        border-width: $width/2 $height $width/2 0;
+        border-right-color: $color;
+    } @else if $direction == 'ne' {
+        border-width: $height 0 0 $width;
+        border-top-color: $color;
+    } @else if $direction == 'se' {
+        border-width: 0 0 $height $width;
+        border-bottom-color: $color;
+    } @else if $direction == 'sw' {
+        border-width: 0 $width $height 0;
+        border-bottom-color: $color;
+    } @else if $direction == 'nw' {
+        border-width: $height $width 0 0;
+        border-top-color: $color;
+    }
+}
