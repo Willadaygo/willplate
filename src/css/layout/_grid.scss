@@ -4,7 +4,7 @@
 
 // INLINE-BLOCK GRID LOLZ
 
-$gutter: #{(1/16)}rem;
+$gutter: #{(30/16)}rem;
 
 .grid {
   list-style: none;
@@ -19,6 +19,9 @@ $gutter: #{(1/16)}rem;
       [class*="col--"] {
         margin-top: 0;
       }
+    }
+    &.grid--noMargins {
+      margin: $gutter 0 0 0;
     }
   }
 }
@@ -38,9 +41,16 @@ $gutter: #{(1/16)}rem;
   &:first-of-type {
     margin-top: 0;
   }
+  .grid--noMargins > & {
+    margin-top: 0;
+  }
   @include break($small-break) {
     &:first-of-type {
       margin-top: $gutter;
+    }
+    .grid--noMargins > & {
+      margin-top: 0;
+      padding-left: 0;
     }
   }
 }
@@ -182,3 +192,26 @@ $gutter: #{(1/16)}rem;
 //     @include grid-machine--noMargins(5);
 //   }
 // }
+
+@include break-max($med-break--max) {
+  .grid--order {
+    display: flex !important;
+    flex-direction: column;
+  }
+}
+
+.col--order1 {
+  order: 1;
+}
+
+.col--order2 {
+  order: 2;
+}
+
+.col--order3 {
+  order: 3;
+}
+
+.col--order4 {
+  order: 4;
+}
