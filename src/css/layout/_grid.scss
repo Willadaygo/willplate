@@ -12,12 +12,9 @@ $gutter: #{(30/16)}rem;
   padding: 0;
   text-align: left;
   font-size: 0; // inline-block mystery margin hack
-  &:first-child { // rids margin from grid inside grid
-    margin-top: 0;
-  }
   @include break($small-break) {
     margin-top: 0;
-    &:first-child { // rids margin from grid cols inside grid
+    &:first-of-type { // rids margin from grid cols inside grid
       [class*="col--"] {
         margin-top: 0;
       }
