@@ -32,7 +32,7 @@
     transform: translate3d(0,0,0) rotate(0);
     backface-visibility:hidden;
     outline: 1px solid transparent; // Firefox hack to stop jagged edges!
-    transition-property: background-color, transform;
+    transition-property: all;
     transition-duration: $transition-duration;
   }
 
@@ -87,20 +87,29 @@
   right: 0;
   user-select:none;
   z-index: 1;
+  border: 0;
 }
 
 .menu-button__burger {
-  @include burger(rem(40), rem(1), rem(7), col("black"), 0, .5s);
+  @include burger(rem(40), rem(1), rem(7), col("black"), 0, .7s);
+   &:before {
+    transform-origin: 0%;
+  }
+  &:after {
+    transform-origin: 100%;
+  }
 }
 
 .menu-button.is--active .menu-button__burger {
   background-color: transparent;
   // transform: rotate(-180deg);
   &:before {
-    transform: translateY(rem(7) + rem(1)) rotate(135deg);
+    transform: translateY(rem(7) + rem(1)) rotate(270deg + 45deg);
+    transform-origin: 50%;
   }
   &:after {
-    transform: translateY(-(rem(7) + rem(1))) rotate(-135deg);
+    transform: translateY(-(rem(7) + rem(1))) rotate(-270deg - 45deg);
+    transform-origin: 50%;
   }
 }
 

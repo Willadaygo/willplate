@@ -84,6 +84,14 @@ a {
   transition: $speed ease;
 }
 
+p a, ul a {
+  border-bottom: rem(1) solid col("white");
+  &:hover, &:focus, &:active {
+    background-color: col("black");
+    color: col("white");
+  }
+}
+
 /*------------------------------------*\
     #SOCIAL
 \*------------------------------------*/
