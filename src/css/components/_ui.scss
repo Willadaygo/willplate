@@ -2,7 +2,6 @@ ul {
   list-style:none;
   list-style-image: none;
   list-style-type: none;
-  margin:0;
   padding:0;
   li {
     list-style:none;
@@ -16,12 +15,12 @@ ul {
 // Page loading
 
 .switch {
-  transition: transform .8s cubic-bezier(0.175, .885, .32, 1.275), opacity 1s; //cheeky
-  @include opacity(1);
+  transition: transform .6s cubic-bezier(0.175, .885, .32, 1.275), opacity 1s; //cheeky
+  opacity: 1;
   transform: translate3d(0, 0, 0);
   &.is--hidden {
-    @include opacity(0);
-    transform: translate3d(30%, 0, 0);
+    opacity: 0;
+    transform: translate3d(-30%, 0, 0);
   }
 }
 

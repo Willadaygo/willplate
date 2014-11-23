@@ -13,7 +13,7 @@
   top: 0;
   left: 0;
   @include size(100%);
-  @include opacity(0);
+  opacity: 0;
   background: transparent;
 }
 
@@ -25,19 +25,22 @@
   backface-visibility: hidden;
 }
 
+$nav-width: rem(255);
+
 .show-nav .site__inner {
-  transform: translate3d(rem(300), 0, 0);
+  transform: translate3d(-$nav-width, 0, 0);
 }
 
 .ocn {
-  width: rem(300);
+  width: $nav-width;
   height: 100%;
   position: fixed;
   top: 0;
+  right: 0;
   background: col("green");
   padding: $padding;
   transition: .5s cubic-bezier(0.645, 0.045, 0.355, 1);
-  transform: translate3d(rem(-300), 0, 0);
+  transform: translate3d(100%, 0, 0);
   &.is--open {
     transform: translate3d(0, 0, 0);
   }

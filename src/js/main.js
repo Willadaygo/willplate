@@ -7,7 +7,8 @@ $(document).ready(function(){
   $(function() {
     
     // Toggle Nav on Click
-    $('.menu-button').on('click', function() {
+    $('.menu-button').on('click', function(e) {
+        e.preventDefault();
         toggleNav();
     });
 
@@ -28,6 +29,8 @@ $(document).ready(function(){
         $('.ocn').removeClass('is--open');
         $(this).remove();
       });
+    } else {
+        $('.overlay').remove();
     }
 
   }

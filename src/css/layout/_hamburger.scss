@@ -29,7 +29,7 @@
     @if $border-radius != 0 {
         border-radius: $border-radius;
     }
-    transform:translateZ(0) translate3d(0,0,0) rotate(0);
+    transform: translate3d(0,0,0) rotate(0);
     backface-visibility:hidden;
     outline: 1px solid transparent; // Firefox hack to stop jagged edges!
     transition-property: background-color, transform;
@@ -82,9 +82,9 @@
 .menu-button {
   display: block;
   padding: rem(30);
-  position: absolute;
+  position: fixed;
   top: 0;
-  left: 0;
+  right: 0;
   user-select:none;
   z-index: 1;
 }
@@ -95,12 +95,12 @@
 
 .menu-button.is--active .menu-button__burger {
   background-color: transparent;
-  transform: rotate(180deg);
+  // transform: rotate(-180deg);
   &:before {
-    transform: translateY(rem(7) + rem(1)) rotate(45deg);
+    transform: translateY(rem(7) + rem(1)) rotate(135deg);
   }
   &:after {
-    transform: translateY(-(rem(7) + rem(1))) rotate(-45deg);
+    transform: translateY(-(rem(7) + rem(1))) rotate(-135deg);
   }
 }
 

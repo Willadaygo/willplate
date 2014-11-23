@@ -108,11 +108,11 @@ $icons: (
     font-weight: normal;
     font-variant: normal;
     text-transform: none;
-    @include opacity(1);
+    opacity: 1;
     vertical-align: bottom;
   }
   .icon--#{$name}:hover:before {
-    @include opacity(.5);
+    opacity: .5;
   }
 }
 
