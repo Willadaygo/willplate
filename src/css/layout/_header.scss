@@ -21,7 +21,7 @@
   @include size(100%);
   position: relative;
   transform: translate3d(0, 0, 0);
-  transition: .5s cubic-bezier(0.645, 0.045, 0.355, 1);
+  transition: .5s $snap;
   backface-visibility: hidden;
 }
 

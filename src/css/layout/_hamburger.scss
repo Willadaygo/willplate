@@ -32,8 +32,7 @@
     transform: translate3d(0,0,0) rotate(0);
     backface-visibility:hidden;
     outline: 1px solid transparent; // Firefox hack to stop jagged edges!
-    transition-property: all;
-    transition-duration: $transition-duration;
+    transition: all $transition-duration $snap;
   }
 
   &:before, &:after {
@@ -102,8 +101,7 @@
 
 .menu-button.is--active .menu-button__burger {
   background-color: transparent;
-  transform-style: preserve-3d;
-  // transform: rotate(-180deg);
+  transform: translate3d(rem(-255),0,0);
   &:before {
     transform: translateY(rem(7) + rem(1)) rotate(-180deg + 45deg);
     transform-origin: 50%;
