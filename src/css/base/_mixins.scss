@@ -99,34 +99,38 @@ $extension2: 'svg' !default;
   ========================================================================== */
 
 @mixin triangle( $direction, $color, $width, $height ) {
+  position: relative;
+  &:before {
+    content: "";
+    position: absolute;
     height: 0;
     width: 0;
     border-style: solid;
     border-color: transparent;
 
     @if $direction == 'n' {
-        border-width: 0 $width/2 $height;
-        border-bottom-color: $color;
+      border-width: 0 $width/2 $height;
+      border-bottom-color: $color;
     } @else if $direction == 'e' {
-        border-width: $width/2 0 $width/2 $height;
-        border-left-color: $color;
+      border-width: $width/2 0 $width/2 $height;
+      border-left-color: $color;
     } @else if $direction == 's' {
-        border-width: $height $width/2 0;
-        border-top-color: $color;
-  } @else if $direction == 'w' {
-        border-width: $width/2 $height $width/2 0;
-        border-right-color: $color;
+      border-width: $height $width/2 0;
+      border-top-color: $color;
+    } @else if $direction == 'w' {
+      border-width: $width/2 $height $width/2 0;
+      border-right-color: $color;
     } @else if $direction == 'ne' {
-        border-width: $height 0 0 $width;
-        border-top-color: $color;
+      border-width: $height 0 0 $width;
+      border-top-color: $color;
     } @else if $direction == 'se' {
-        border-width: 0 0 $height $width;
-        border-bottom-color: $color;
+      border-width: 0 0 $height $width;
+      border-bottom-color: $color;
     } @else if $direction == 'sw' {
-        border-width: 0 $width $height 0;
-        border-bottom-color: $color;
+      border-width: 0 $width $height 0;
+      border-bottom-color: $color;
     } @else if $direction == 'nw' {
-        border-width: $height $width 0 0;
-        border-top-color: $color;
+      border-width: $height $width 0 0;
+      border-top-color: $color;
     }
-}
+  }}

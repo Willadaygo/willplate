@@ -2,9 +2,13 @@
     #OTHER ARBITRARY HELPERS
 \*------------------------------------*/
 
-@each $color in map-keys($palette) {
-  .l__#{$color} { background-color: map-get($palette, $color) !important; }
-  .t__#{$color} { color: map-get($palette, $color) !important; }
+@each $profile, $color in $palette {
+  .l__#{$profile} { background-color: $color !important; }
+  .l__#{$profile}--hover:hover { background-color: $color !important; }
+  .t__#{$profile} { color: $color !important; }
+  .t__#{$profile}--hover:hover { color: $color !important; }
+  .f__#{$profile} { fill: $color !important; }
+  .f__#{$profile}--hover:hover { fill: $color !important; }
 }
 
 .z__back {
@@ -138,4 +142,13 @@
 .t__word-break {
   word-break: break-all;
   word-break: break-word;
+}
+
+.l__nook-top {
+  @include triangle( 'n', col("green"), rem(20), rem(10) );
+  &:before {
+    top: rem(-10);
+    left: 50%;
+    margin-left: rem(-10);
+  }
 }
